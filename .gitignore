@@ -1,0 +1,9 @@
+/.env
+/.kaggle
+/airflow.cfg
+/config
+/docker
+/logs
+/myvenv
+/plugins
+/requirements.txt

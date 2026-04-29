@@ -1,0 +1,10 @@
+v1
+{"path":"file:///home/jovyan/data/olist_customers_dataset.csv","timestamp":1776093438278,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_geolocation_dataset.csv","timestamp":1776093438419,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_order_items_dataset.csv","timestamp":1776093438531,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_order_payments_dataset.csv","timestamp":1776093438557,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_order_reviews_dataset.csv","timestamp":1776093438620,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_orders_dataset.csv","timestamp":1776093438691,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_products_dataset.csv","timestamp":1776093438698,"batchId":1}
+{"path":"file:///home/jovyan/data/olist_sellers_dataset.csv","timestamp":1776093438705,"batchId":1}
+{"path":"file:///home/jovyan/data/product_category_name_translation.csv","timestamp":1776093438706,"batchId":1}
