@@ -13,6 +13,9 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+    PYTHONPATH: /opt/airflow # agar modul custom bisa diimport
+    DATA_PATH: /opt/airflow/data
+    KAGGLE_CONFIG_DIR: /home/airflow/.kaggle
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -93,6 +96,7 @@ services:
       POSTGRES_DB: airflow
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
+      - ./scripts/sql/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U airflow"]
       interval: 5s
@@ -228,10 +232,13 @@ services:
       - ./notebooks:/home/jovyan/notebooks # menyimpan notebook dari container ke storage lokal
       - ./data:/home/jovyan/data # membaca data dari folder data diluar container
       - ./.kaggle:/home/jovyan/work/.kaggle # untuk akses API Kaggle
+      - ./.env:/home/jovyan/work/.env # untuk akses environment variable
+    env_file:
+      - .env                        # load env vars dari file ini
     working_dir: /home/jovyan/work
     command: >
       bash -lc "
-      pip install kafka-python pandas sqlalchemy psycopg2-binary findspark kaggle &&
+      pip install kafka-python pandas sqlalchemy psycopg2-binary findspark kaggle python-dotenv &&
       start-notebook.sh --NotebookApp.token=''
       "
     networks:
