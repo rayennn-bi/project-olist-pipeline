@@ -1,4 +1,4 @@
-# Olist Data Engineering Pipeline v2
+# Olist Data Engineering Pipeline 
 An end-to-end data engineering project built on the <https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce> (Brazilian E-Commerce Public Dataset by Olist) . The stack combines batch processing, Kafka-based streaming, a PostgreSQL warehouse, Airflow orchestration, and dashboards
 
 ## Overview
