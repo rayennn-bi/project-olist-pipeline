@@ -1,0 +1,6 @@
+notebooks/** linguist-vendored
+data/** linguist-vendored
+*.py linguist-detectable=true
+*.sh linguist-detectable=true
+*.sql linguist-detectable=true
+*.yaml linguist-detectable=true
