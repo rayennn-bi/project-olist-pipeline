@@ -206,6 +206,14 @@ download_kaggle
 >
 <img width="1359" height="417" alt="image" src="https://github.com/user-attachments/assets/6a77e573-bc36-4597-ba80-8c339d153c19" />
 
+--
+## warehouse schema
+<img width="1266" height="687" alt="image" src="https://github.com/user-attachments/assets/4bf83507-4e1c-402a-8cb1-4064a2f617a4" />
+
+
+## dashboard analyttic RFM
+<img width="1912" height="928" alt="image" src="https://github.com/user-attachments/assets/8ea46ad1-4563-482d-95d5-7a3890c159f8" />
+<img width="1858" height="976" alt="image" src="https://github.com/user-attachments/assets/586897b6-72d7-454b-9917-0e388396dfee" />
 ---
 
 ## 📁 Project Structure
@@ -251,6 +259,10 @@ Contains ~100k orders from 2016–2018 made at multiple marketplaces in Brazil, 
 ## 👤 Author
 
 Built as a data engineering portfolio project demonstrating real-world pipeline design with modern open-source tools.
+
+
+
+
 
 
 
