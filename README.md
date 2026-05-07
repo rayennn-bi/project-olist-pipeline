@@ -1,4 +1,4 @@
-# 🛒 Olist Data Engineering Pipeline
+# 🛒 Olist e-commerce Data Engineering Pipeline
 
 > End-to-end data pipeline built on the [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce) — covering ingestion, streaming, transformation, warehousing, and dashboarding in a fully containerized environment.
 
@@ -49,9 +49,9 @@ Dashboard / BI Layer
 
 | Layer | Technology |
 |---|---|
-| Orchestration | Apache Airflow |
-| Streaming | Apache Kafka + Zookeeper |
-| Processing | PySpark + Papermill |
+| Orchestration / batch scheduler | Apache Airflow |
+| real time Streaming data | Apache Kafka + Zookeeper |
+| large scale data Processing | PySpark + Papermill |
 | Storage | PostgreSQL |
 | Containerization | Docker Compose |
 | Notebooks | Jupyter Lab |
