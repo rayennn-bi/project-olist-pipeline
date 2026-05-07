@@ -22,6 +22,7 @@ x-airflow-common: &airflow-common
     - ./plugins:/opt/airflow/plugins
     - ./scripts:/opt/airflow/scripts
     - ./.kaggle:/home/airflow/.kaggle # untuk akses API Kaggle
+    - ./data:/opt/airflow/data # untuk akses data dari folder data diluar container
   user: "50000:0"
   networks:
     - olist-net

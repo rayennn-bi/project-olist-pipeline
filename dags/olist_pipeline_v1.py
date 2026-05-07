@@ -41,12 +41,12 @@ def create_kafka_topics():
 # DAG
 # -----------------------
 default_args = {
-    "owner": "aji",
+    "owner": "rian",
     "retries": 1,
 }
 
 with DAG(
-    dag_id="olist_pipeline_v3",
+    dag_id="olist_pipeline_v1",
     default_args=default_args,
     start_date=datetime(2026, 3, 19),
     schedule_interval=None,
@@ -58,7 +58,7 @@ with DAG(
     # -----------------------
     download_kaggle = BashOperator(
         task_id="download_kaggle",
-        bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/ingest/download_kaggle.py",
+        bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/ingest/download_data.py",
     )
 
     # -----------------------
@@ -113,18 +113,18 @@ with DAG(
     with TaskGroup("dimensions") as dimensions:
         dim_customer = BashOperator(
             task_id="dim_customer",
-            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/batch/dim_customer.py",
+            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/dimension/dim_customer.py",
         )
 
 
         dim_product = BashOperator(
             task_id="dim_product",
-            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/batch/dim_product.py",
+            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/dimension/dim_products.py",
         )
 
         dim_seller = BashOperator(
             task_id="dim_seller",
-            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/batch/dim_seller.py",
+            bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/dimension/dim_sellers.py",
         )
 
     # -----------------------
@@ -161,15 +161,8 @@ with DAG(
 
         quality_fact_sales >> quality_fact_sales_enriched
 
-    # -----------------------
-    # 6. Analytics Views
-    # -----------------------
-    build_views = BashOperator(
-        task_id="build_views",
-        bash_command="PYTHONPATH=/opt/airflow python /opt/airflow/scripts/sql/run_views.py",
-    )
 
     # -----------------------
     # FLOW
     # -----------------------
-    download_kaggle >> init_topics >> producers >> consumers >> dimensions >> facts >> quality >> build_views
+    download_kaggle >> init_topics >> producers >> consumers >> dimensions >> facts >> quality 

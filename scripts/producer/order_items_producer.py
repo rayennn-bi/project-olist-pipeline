@@ -25,7 +25,7 @@ def get_config() -> Dict[str, Any]:
     return {
         'topic':            os.getenv('KAFKA_TOPIC_ORDER_ITEMS', 'olist.order_items'),
         'bootstrap_servers': os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'kafka:9092'),
-        'csv_path':         Path(RAW_PATH) / 'items' / 'olist_order_items_dataset.csv',
+        'csv_path':         Path(data_path) / 'raw' / 'items' / 'olist_order_items_dataset.csv',
         'flush_every':      int(os.getenv('PRODUCER_FLUSH_EVERY', '5000')),
         'sleep_seconds':    float(os.getenv('PRODUCER_SLEEP_SECONDS', '0')),
         'sample_only':      os.getenv('PRODUCER_SAMPLE_ONLY', 'false').lower() == 'true',
